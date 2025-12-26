@@ -33,6 +33,13 @@ jobs:
       - name: Build static site
         run: npm run build
       
+      - name: Verify build output
+        run: |
+          ls -la out/
+          ls -la out/_next/static/ || echo "Checking _next folder..."
+          test -f out/.nojekyll || echo "WARNING: .nojekyll file missing!"
+          test -f out/CNAME || echo "WARNING: CNAME file missing!"
+      
       - name: Setup Pages
         uses: actions/configure-pages@v4
       

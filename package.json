@@ -8,7 +8,7 @@
     "export": "next build",
     "start": "next start",
     "lint": "next lint",
-    "verify-build": "next build && ls -la out/ && ls -la out/_next/static/ 2>/dev/null || echo 'Checking build output...'"
+    "verify-build": "npm run build && ./verify-build.sh"
   },
   "dependencies": {
     "react": "^18.2.0",
