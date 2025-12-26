@@ -19,8 +19,8 @@ export const hero = {
   subtext: 'Federal & State E-Filing • Maximize Deductions & Credits • Remote Tax Service Available',
   buttons: {
     bookAppointment: 'Book Appointment',
-    callText: 'Call / Text',
-    
+    call: 'Call',
+    text: 'Text',
   },
 }
 

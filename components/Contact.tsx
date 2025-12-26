@@ -175,7 +175,7 @@ const Contact = () => {
               </div>
             </a>
             <a
-              href={`sms:${siteConfig.contact.text}`}
+              href={`sms:${siteConfig.contact.text.replace(/[\s\-\(\)]/g, '')}`}
               className="flex items-center gap-4 bg-white border border-primary-200 rounded-2xl p-6 hover:bg-primary-50 hover:border-primary-300 transition-all duration-300 group soft-shadow hover:soft-shadow-lg"
             >
               <div className="w-14 h-14 bg-gradient-to-br from-primary-100 via-accent-100 to-primary-50 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">

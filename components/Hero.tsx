@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { hero, siteConfig } from '@/constants/content'
-import { PhoneIcon, CalendarIcon } from '@heroicons/react/24/outline'
+import { PhoneIcon, CalendarIcon, ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline'
 import CalendlyWidget from './CalendlyWidget'
 
 const Hero = () => {
@@ -12,8 +12,14 @@ const Hero = () => {
     setIsCalendlyOpen(true)
   }
 
-  const handleCallText = () => {
+  const handleCall = () => {
     window.location.href = `tel:${siteConfig.contact.phone}`
+  }
+
+  const handleText = () => {
+    // Remove dashes, spaces, and parentheses for better SMS compatibility
+    const phoneNumber = siteConfig.contact.text.replace(/[\s\-\(\)]/g, '')
+    window.location.href = `sms:${phoneNumber}`
   }
 
   return (
@@ -36,11 +42,18 @@ const Hero = () => {
                 {hero.buttons.bookAppointment}
               </button>
               <button
-                onClick={handleCallText}
+                onClick={handleCall}
                 className="w-full sm:w-auto bg-white text-primary-600 px-10 py-4.5 rounded-xl border-2 border-primary-200 hover:border-primary-300 hover:bg-primary-50/50 transition-all duration-300 font-semibold text-lg flex items-center justify-center gap-2.5 soft-shadow hover:soft-shadow-lg"
               >
                 <PhoneIcon className="w-5 h-5" />
-                {hero.buttons.callText}
+                {hero.buttons.call}
+              </button>
+              <button
+                onClick={handleText}
+                className="w-full sm:w-auto bg-white text-primary-600 px-10 py-4.5 rounded-xl border-2 border-primary-200 hover:border-primary-300 hover:bg-primary-50/50 transition-all duration-300 font-semibold text-lg flex items-center justify-center gap-2.5 soft-shadow hover:soft-shadow-lg"
+              >
+                <ChatBubbleLeftRightIcon className="w-5 h-5" />
+                {hero.buttons.text}
               </button>
             </div>
           </div>
