@@ -12,18 +12,36 @@ const Contact = () => {
     message: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Tax Service Inquiry from ${formData.name}`)
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    )
-    window.location.href = `mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`
-    setSubmitted(true)
-    setFormData({ name: '', phone: '', email: '', message: '' })
-    setTimeout(() => setSubmitted(false), 5000)
+    setLoading(true)
+    setError('')
+    
+    try {
+      const response = await fetch('https://formspree.io/f/xregbzln', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+        setFormData({ name: '', phone: '', email: '', message: '' })
+        setTimeout(() => setSubmitted(false), 5000)
+      } else {
+        const data = await response.json()
+        setError(data.error || 'Something went wrong. Please try again.')
+      }
+    } catch (err) {
+      setError('Failed to send message. Please try again or contact us directly.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const handleChange = (
@@ -121,13 +139,19 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-primary-600 to-accent-600 text-white px-6 py-3.5 rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 font-semibold soft-shadow hover:soft-shadow-lg transform hover:-translate-y-0.5 active:translate-y-0"
+                disabled={loading}
+                className="w-full bg-gradient-to-r from-primary-600 to-accent-600 text-white px-6 py-3.5 rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 font-semibold soft-shadow hover:soft-shadow-lg transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
-                {contact.form.submit}
+                {loading ? 'Sending...' : contact.form.submit}
               </button>
               {submitted && (
                 <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-xl text-sm soft-shadow">
                   {contact.form.successMessage}
+                </div>
+              )}
+              {error && (
+                <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-xl text-sm soft-shadow">
+                  {error}
                 </div>
               )}
             </form>

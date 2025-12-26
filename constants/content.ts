@@ -2,15 +2,15 @@
 // Edit this file to update any text on the site
 
 export const siteConfig = {
-  businessName: 'Tes Tax Services',
+  businessName: 'Tesfie Tax Services',
   location: {
     city: 'Philadelphia',
     state: 'PA',
   },
   contact: {
-    phone: '555-123-4567', // Update with your phone number
-    email: 'info@testaxservices.com', // Update with your email
-    text: '555-123-4567', // Update with your text number (can be same as phone)
+    phone: '215-839-6506', // Update with your phone number
+    email: 'tesfie056@gmail.com', // Update with your email
+    text: '215-839-6506', // Update with your text number (can be same as phone)
   },
 }
 
@@ -20,6 +20,7 @@ export const hero = {
   buttons: {
     bookAppointment: 'Book Appointment',
     callText: 'Call / Text',
+    
   },
 }
 
