@@ -31,7 +31,7 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto container-padding">
-        <div className="flex items-center justify-between h-18 md:h-20">
+        <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <div
             className="flex items-center cursor-pointer group"
@@ -40,9 +40,9 @@ const Navbar = () => {
             <Image
               src="/logo.jpeg"
               alt={siteConfig.businessName}
-              width={140}
-              height={45}
-              className="h-11 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              width={200}
+              height={65}
+              className="h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               priority
             />
           </div>

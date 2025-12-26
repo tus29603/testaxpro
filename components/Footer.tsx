@@ -12,9 +12,9 @@ const Footer = () => {
             <Image
               src="/logo.jpeg"
               alt={siteConfig.businessName}
-              width={140}
-              height={45}
-              className="h-12 w-auto object-contain mb-5 brightness-0 invert opacity-90"
+              width={200}
+              height={65}
+              className="h-20 w-auto object-contain mb-5 brightness-0 invert opacity-90"
             />
             <p className="text-gray-400 text-[15px]">
               {siteConfig.location.city}, {siteConfig.location.state}
