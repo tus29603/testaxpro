@@ -24,9 +24,12 @@ const Services = () => {
     <section id="services" className="section-padding bg-gradient-to-b from-white via-accent-50/20 to-white">
       <div className="max-w-7xl mx-auto container-padding">
         <div className="text-center mb-16 md:mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3 tracking-tight">
             Our Services
           </h2>
+          <p className="text-sm text-gray-500 mb-5">
+            Individuals • Families • Self-Employed
+          </p>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
             Comprehensive tax preparation services tailored to your needs
           </p>

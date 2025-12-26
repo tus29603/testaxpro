@@ -24,7 +24,7 @@ const Hero = () => {
 
   return (
     <>
-      <section id="hero" className="pt-32 pb-20 md:pt-38 md:pb-28 bg-gradient-to-br from-primary-50 via-accent-50/30 to-white">
+      <section id="hero" className="pt-32 pb-16 md:pt-38 md:pb-24 bg-gradient-to-br from-primary-50 via-accent-50/30 to-white">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-[1.1] tracking-tight">
