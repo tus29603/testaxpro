@@ -111,6 +111,10 @@ export const faq = [
     question: 'Can you amend a return?',
     answer: 'Yes, we can help you file an amended return (Form 1040-X) to correct errors or claim missed deductions from previous tax years.',
   },
+  {
+    question: 'Is it safe to submit my information through the website?',
+    answer: 'For your security, please do not submit Social Security numbers, tax documents, or sensitive personal information through this website. Contact us directly via phone, email, or during your appointment to securely share sensitive information.',
+  },
 ]
 
 export const contact = {

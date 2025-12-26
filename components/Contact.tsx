@@ -154,6 +154,9 @@ const Contact = () => {
                   {error}
                 </div>
               )}
+              <p className="text-xs text-gray-500 text-center mt-4">
+                For your security, please do not submit Social Security numbers, tax documents, or sensitive personal information through this website.
+              </p>
             </form>
           </div>
 
