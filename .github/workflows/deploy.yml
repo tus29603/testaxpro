@@ -33,12 +33,27 @@ jobs:
       - name: Build static site
         run: npm run build
       
+      - name: Ensure .nojekyll exists
+        run: |
+          touch out/.nojekyll
+          echo "✅ Created .nojekyll file"
+      
       - name: Verify build output
         run: |
-          ls -la out/
-          ls -la out/_next/static/ || echo "Checking _next folder..."
-          test -f out/.nojekyll || echo "WARNING: .nojekyll file missing!"
-          test -f out/CNAME || echo "WARNING: CNAME file missing!"
+          echo "=== Build Output Verification ==="
+          ls -la out/ | head -20
+          echo ""
+          echo "=== Checking _next folder ==="
+          ls -la out/_next/static/ | head -10 || echo "ERROR: _next/static not found!"
+          echo ""
+          echo "=== Checking critical files ==="
+          test -f out/.nojekyll && echo "✅ .nojekyll exists" || echo "❌ .nojekyll MISSING"
+          test -f out/CNAME && echo "✅ CNAME exists" || echo "❌ CNAME MISSING"
+          test -f out/index.html && echo "✅ index.html exists" || echo "❌ index.html MISSING"
+          echo ""
+          echo "=== Checking asset paths in HTML ==="
+          grep -o 'href="/_next/static[^"]*"' out/index.html | head -3 || echo "No _next paths found"
+          grep -o 'src="/_next/static[^"]*"' out/index.html | head -3 || echo "No _next src paths found"
       
       - name: Setup Pages
         uses: actions/configure-pages@v4

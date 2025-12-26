@@ -33,14 +33,6 @@ const Footer = () => {
               </button>
               <button
                 onClick={() => {
-                  document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="block text-gray-400 hover:text-white transition-colors duration-200 text-[15px] text-left"
-              >
-                Pricing
-              </button>
-              <button
-                onClick={() => {
                   document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })
                 }}
                 className="block text-gray-400 hover:text-white transition-colors duration-200 text-[15px] text-left"

@@ -62,12 +62,6 @@ const Navbar = () => {
               How It Works
             </button>
             <button
-              onClick={() => scrollToSection('pricing')}
-              className="text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg hover:bg-primary-50 transition-all duration-200 font-medium text-[15px]"
-            >
-              Pricing
-            </button>
-            <button
               onClick={() => scrollToSection('faq')}
               className="text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg hover:bg-primary-50 transition-all duration-200 font-medium text-[15px]"
             >
