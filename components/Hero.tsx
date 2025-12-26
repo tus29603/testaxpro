@@ -24,7 +24,7 @@ const Hero = () => {
 
   return (
     <>
-      <section id="hero" className="pt-36 pb-24 md:pt-44 md:pb-32 bg-gradient-to-br from-primary-50 via-accent-50/30 to-white">
+      <section id="hero" className="pt-32 pb-20 md:pt-38 md:pb-28 bg-gradient-to-br from-primary-50 via-accent-50/30 to-white">
         <div className="max-w-7xl mx-auto container-padding">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-[1.1] tracking-tight">
@@ -33,29 +33,32 @@ const Hero = () => {
             <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed font-light max-w-3xl mx-auto">
               {hero.subtext}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
               <button
                 onClick={handleBookAppointment}
-                className="w-full sm:w-auto bg-gradient-to-r from-primary-600 to-accent-600 text-white px-10 py-4.5 rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 font-semibold text-lg flex items-center justify-center gap-2.5 soft-shadow-lg hover:soft-shadow-xl transform hover:-translate-y-1 active:translate-y-0"
+                className="w-full sm:w-auto bg-gradient-to-r from-primary-600 to-accent-600 text-white px-10 py-4.5 rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 font-bold text-lg flex items-center justify-center gap-2 soft-shadow-lg hover:soft-shadow-xl transform hover:-translate-y-1 active:translate-y-0"
               >
-                <CalendarIcon className="w-5 h-5" />
+                <CalendarIcon className="w-4 h-4" />
                 {hero.buttons.bookAppointment}
               </button>
               <button
                 onClick={handleCall}
-                className="w-full sm:w-auto bg-white text-primary-600 px-10 py-4.5 rounded-xl border-2 border-primary-200 hover:border-primary-300 hover:bg-primary-50/50 transition-all duration-300 font-semibold text-lg flex items-center justify-center gap-2.5 soft-shadow hover:soft-shadow-lg"
+                className="w-full sm:w-auto bg-transparent text-primary-600 px-7 py-3.5 rounded-xl border-2 border-primary-300 hover:border-primary-400 hover:bg-primary-50/30 transition-all duration-300 font-bold text-base flex items-center justify-center gap-1.5"
               >
-                <PhoneIcon className="w-5 h-5" />
+                <PhoneIcon className="w-4 h-4" />
                 {hero.buttons.call}
               </button>
               <button
                 onClick={handleText}
-                className="w-full sm:w-auto bg-white text-primary-600 px-10 py-4.5 rounded-xl border-2 border-primary-200 hover:border-primary-300 hover:bg-primary-50/50 transition-all duration-300 font-semibold text-lg flex items-center justify-center gap-2.5 soft-shadow hover:soft-shadow-lg"
+                className="w-full sm:w-auto bg-transparent text-primary-600 px-7 py-3.5 rounded-xl border-2 border-primary-300 hover:border-primary-400 hover:bg-primary-50/30 transition-all duration-300 font-bold text-base flex items-center justify-center gap-1.5"
               >
-                <ChatBubbleLeftRightIcon className="w-5 h-5" />
+                <ChatBubbleLeftRightIcon className="w-4 h-4" />
                 {hero.buttons.text}
               </button>
             </div>
+            <p className="text-sm text-gray-500 mt-2">
+              {hero.trustCue}
+            </p>
           </div>
         </div>
       </section>

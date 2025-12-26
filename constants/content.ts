@@ -22,6 +22,7 @@ export const hero = {
     call: 'Call',
     text: 'Text',
   },
+  trustCue: 'Fast, accurate, and confidential',
 }
 
 export const services = [
