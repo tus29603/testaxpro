@@ -77,6 +77,78 @@ npm run build
 
 The static files will be generated in the `out` directory.
 
+## Deployment to GitHub Pages
+
+This project is configured for static export and is ready to deploy to GitHub Pages.
+
+### Build and Export
+
+1. **Build the static site:**
+   ```bash
+   npm run build
+   ```
+
+2. **The build output:**
+   - All static files are generated in the `out/` directory
+   - The `out/` folder contains `index.html` and all assets
+   - All paths use relative/absolute paths compatible with root domain hosting
+
+### Deploy to GitHub Pages
+
+**Option 1: Deploy the `out/` folder directly**
+
+1. Build the project:
+   ```bash
+   npm run build
+   ```
+
+2. Copy the contents of the `out/` folder to your repository root (or a `docs/` folder)
+
+3. In GitHub repository settings:
+   - Go to Settings → Pages
+   - Set Source to the folder containing the built files
+   - Save
+
+**Option 2: Use GitHub Actions (Recommended)**
+
+1. Create `.github/workflows/deploy.yml`:
+   ```yaml
+   name: Deploy to GitHub Pages
+   
+   on:
+     push:
+       branches: [ main ]
+   
+   jobs:
+     build-and-deploy:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v3
+         - uses: actions/setup-node@v3
+           with:
+             node-version: '18'
+         - run: npm install
+         - run: npm run build
+         - uses: peaceiris/actions-gh-pages@v3
+           with:
+             github_token: ${{ secrets.GITHUB_TOKEN }}
+             publish_dir: ./out
+   ```
+
+2. Push to GitHub - the workflow will automatically build and deploy
+
+### Important Notes
+
+- The `CNAME` file is already configured for `testaxpro.com`
+- The site is configured for root domain hosting (not subdirectory)
+- All assets use absolute paths (`/logo.jpeg`) which work with root domain
+- No backend or environment variables required
+- The exported site is fully static HTML/CSS/JS
+
+### Verify Deployment
+
+After deployment, visit `https://testaxpro.com` - it should look exactly like `localhost:3000`.
+
 ## Deployment to Vercel
 
 1. Push your code to a GitHub repository.
