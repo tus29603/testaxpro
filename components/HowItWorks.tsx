@@ -17,13 +17,13 @@ const stepIcons = [
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="section-padding bg-primary-50">
+    <section id="how-it-works" className="section-padding bg-gradient-to-br from-primary-50 via-accent-50/40 to-primary-50">
       <div className="max-w-7xl mx-auto container-padding">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-16 md:mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5 tracking-tight">
             How It Works
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
             Simple, straightforward process to get your taxes done
           </p>
         </div>
@@ -33,18 +33,18 @@ const HowItWorks = () => {
             return (
               <div
                 key={index}
-                className="bg-white rounded-xl p-6 md:p-8 text-center shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white rounded-2xl p-8 text-center soft-shadow hover:soft-shadow-lg transition-all duration-300 group"
               >
-                <div className="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary-600 via-primary-500 to-accent-500 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform duration-300 soft-shadow">
                   <IconComponent className="w-8 h-8 text-white" />
                 </div>
-                <div className="text-2xl font-bold text-primary-600 mb-2">
+                <div className="text-xl font-bold text-primary-600 mb-2">
                   Step {item.step}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-[15px]">
                   {item.description}
                 </p>
               </div>

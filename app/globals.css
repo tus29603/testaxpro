@@ -8,17 +8,38 @@
   }
   
   body {
-    @apply bg-white text-gray-900;
+    @apply text-gray-900 antialiased;
+    background: linear-gradient(to bottom, #f0f9ff 0%, #ffffff 50%, #f0fdf4 100%);
+    background-attachment: fixed;
+    font-feature-settings: 'kern' 1;
+    text-rendering: optimizeLegibility;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+    letter-spacing: -0.02em;
   }
 }
 
 @layer utilities {
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-20 md:py-28;
   }
   
   .container-padding {
     @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .soft-shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
+  }
+  
+  .soft-shadow-lg {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+  
+  .soft-shadow-xl {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 }
 

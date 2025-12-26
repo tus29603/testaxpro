@@ -16,26 +16,26 @@ const Hero = () => {
   }
 
   return (
-    <section id="hero" className="pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-primary-50 to-white">
+    <section id="hero" className="pt-36 pb-24 md:pt-44 md:pb-32 bg-gradient-to-br from-primary-50 via-accent-50/30 to-white">
       <div className="max-w-7xl mx-auto container-padding">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-[1.1] tracking-tight">
             {hero.headline}
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed font-light max-w-3xl mx-auto">
             {hero.subtext}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={scrollToContact}
-              className="w-full sm:w-auto bg-primary-600 text-white px-8 py-4 rounded-lg hover:bg-primary-700 transition-colors font-semibold text-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
+              className="w-full sm:w-auto bg-gradient-to-r from-primary-600 to-accent-600 text-white px-10 py-4.5 rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 font-semibold text-lg flex items-center justify-center gap-2.5 soft-shadow-lg hover:soft-shadow-xl transform hover:-translate-y-1 active:translate-y-0"
             >
               <CalendarIcon className="w-5 h-5" />
               {hero.buttons.bookAppointment}
             </button>
             <button
               onClick={handleCallText}
-              className="w-full sm:w-auto bg-white text-primary-600 px-8 py-4 rounded-lg border-2 border-primary-600 hover:bg-primary-50 transition-colors font-semibold text-lg flex items-center justify-center gap-2"
+              className="w-full sm:w-auto bg-white text-primary-600 px-10 py-4.5 rounded-xl border-2 border-primary-200 hover:border-primary-300 hover:bg-primary-50/50 transition-all duration-300 font-semibold text-lg flex items-center justify-center gap-2.5 soft-shadow hover:soft-shadow-lg"
             >
               <PhoneIcon className="w-5 h-5" />
               {hero.buttons.callText}

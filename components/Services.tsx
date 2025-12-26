@@ -21,13 +21,13 @@ const iconMap: { [key: string]: React.ComponentType<{ className?: string }> } = 
 
 const Services = () => {
   return (
-    <section id="services" className="section-padding bg-white">
+    <section id="services" className="section-padding bg-gradient-to-b from-white via-accent-50/20 to-white">
       <div className="max-w-7xl mx-auto container-padding">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-16 md:mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5 tracking-tight">
             Our Services
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
             Comprehensive tax preparation services tailored to your needs
           </p>
         </div>
@@ -37,15 +37,15 @@ const Services = () => {
             return (
               <div
                 key={index}
-                className="bg-white border-2 border-gray-100 rounded-xl p-6 hover:border-primary-300 hover:shadow-lg transition-all duration-300"
+                className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-primary-300 hover:soft-shadow-lg transition-all duration-300 group cursor-pointer"
               >
-                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-                  <IconComponent className="w-6 h-6 text-primary-600" />
+                <div className="w-14 h-14 bg-gradient-to-br from-primary-100 via-accent-100 to-primary-50 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                  <IconComponent className="w-7 h-7 text-primary-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-[15px]">
                   {service.description}
                 </p>
               </div>

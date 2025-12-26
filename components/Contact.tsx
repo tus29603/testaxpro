@@ -38,18 +38,18 @@ const Contact = () => {
   return (
     <section id="contact" className="section-padding bg-white">
       <div className="max-w-4xl mx-auto container-padding">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-16 md:mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5 tracking-tight">
             {contact.form.title}
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-xl text-gray-600 font-light">
             {contact.form.subtitle}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Form */}
-          <div className="bg-gray-50 rounded-xl p-6 md:p-8">
+          <div className="bg-gradient-to-br from-primary-50/30 via-accent-50/20 to-white rounded-2xl p-8 border border-primary-200/50 soft-shadow">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label
@@ -65,7 +65,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors"
+                  className="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 outline-none transition-all duration-200 bg-white hover:border-gray-400"
                 />
               </div>
               <div>
@@ -82,7 +82,7 @@ const Contact = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors"
+                  className="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 outline-none transition-all duration-200 bg-white hover:border-gray-400"
                 />
               </div>
               <div>
@@ -99,7 +99,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors"
+                  className="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 outline-none transition-all duration-200 bg-white hover:border-gray-400"
                 />
               </div>
               <div>
@@ -116,17 +116,17 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 outline-none transition-all duration-200 resize-none bg-white hover:border-gray-400"
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-primary-600 text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors font-semibold"
+                className="w-full bg-gradient-to-r from-primary-600 to-accent-600 text-white px-6 py-3.5 rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 font-semibold soft-shadow hover:soft-shadow-lg transform hover:-translate-y-0.5 active:translate-y-0"
               >
                 {contact.form.submit}
               </button>
               {submitted && (
-                <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg text-sm">
+                <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-xl text-sm soft-shadow">
                   {contact.form.successMessage}
                 </div>
               )}
@@ -137,37 +137,37 @@ const Contact = () => {
           <div className="space-y-4">
             <a
               href={`tel:${siteConfig.contact.phone}`}
-              className="flex items-center gap-4 bg-white border-2 border-primary-600 rounded-xl p-6 hover:bg-primary-50 transition-colors group"
+              className="flex items-center gap-4 bg-white border border-primary-200 rounded-2xl p-6 hover:bg-primary-50 hover:border-primary-300 transition-all duration-300 group soft-shadow hover:soft-shadow-lg"
             >
-              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center group-hover:bg-primary-200 transition-colors">
+              <div className="w-14 h-14 bg-gradient-to-br from-primary-100 via-accent-100 to-primary-50 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <PhoneIcon className="w-6 h-6 text-primary-600" />
               </div>
               <div>
-                <div className="font-semibold text-gray-900">{contact.buttons.call}</div>
+                <div className="font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">{contact.buttons.call}</div>
                 <div className="text-sm text-gray-600">{siteConfig.contact.phone}</div>
               </div>
             </a>
             <a
               href={`sms:${siteConfig.contact.text}`}
-              className="flex items-center gap-4 bg-white border-2 border-primary-600 rounded-xl p-6 hover:bg-primary-50 transition-colors group"
+              className="flex items-center gap-4 bg-white border border-primary-200 rounded-2xl p-6 hover:bg-primary-50 hover:border-primary-300 transition-all duration-300 group soft-shadow hover:soft-shadow-lg"
             >
-              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center group-hover:bg-primary-200 transition-colors">
+              <div className="w-14 h-14 bg-gradient-to-br from-primary-100 via-accent-100 to-primary-50 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <ChatBubbleLeftRightIcon className="w-6 h-6 text-primary-600" />
               </div>
               <div>
-                <div className="font-semibold text-gray-900">{contact.buttons.text}</div>
+                <div className="font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">{contact.buttons.text}</div>
                 <div className="text-sm text-gray-600">{siteConfig.contact.text}</div>
               </div>
             </a>
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className="flex items-center gap-4 bg-white border-2 border-primary-600 rounded-xl p-6 hover:bg-primary-50 transition-colors group"
+              className="flex items-center gap-4 bg-white border border-primary-200 rounded-2xl p-6 hover:bg-primary-50 hover:border-primary-300 transition-all duration-300 group soft-shadow hover:soft-shadow-lg"
             >
-              <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center group-hover:bg-primary-200 transition-colors">
+              <div className="w-14 h-14 bg-gradient-to-br from-primary-100 via-accent-100 to-primary-50 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <EnvelopeIcon className="w-6 h-6 text-primary-600" />
               </div>
               <div>
-                <div className="font-semibold text-gray-900">{contact.buttons.email}</div>
+                <div className="font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">{contact.buttons.email}</div>
                 <div className="text-sm text-gray-600">{siteConfig.contact.email}</div>
               </div>
             </a>

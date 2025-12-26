@@ -26,56 +26,56 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white shadow-md'
+          ? 'bg-white/98 backdrop-blur-md soft-shadow'
           : 'bg-white/95 backdrop-blur-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto container-padding">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-18 md:h-20">
           {/* Logo */}
           <div
-            className="flex items-center cursor-pointer"
+            className="flex items-center cursor-pointer group"
             onClick={() => scrollToSection('hero')}
           >
             <Image
               src="/logo.jpeg"
               alt={siteConfig.businessName}
-              width={120}
-              height={40}
-              className="h-10 md:h-12 w-auto object-contain"
+              width={140}
+              height={45}
+              className="h-11 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               priority
             />
           </div>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-1">
             <button
               onClick={() => scrollToSection('services')}
-              className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
+              className="text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg hover:bg-primary-50 transition-all duration-200 font-medium text-[15px]"
             >
               Services
             </button>
             <button
               onClick={() => scrollToSection('how-it-works')}
-              className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
+              className="text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg hover:bg-primary-50 transition-all duration-200 font-medium text-[15px]"
             >
               How It Works
             </button>
             <button
               onClick={() => scrollToSection('pricing')}
-              className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
+              className="text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg hover:bg-primary-50 transition-all duration-200 font-medium text-[15px]"
             >
               Pricing
             </button>
             <button
               onClick={() => scrollToSection('faq')}
-              className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
+              className="text-gray-600 hover:text-primary-600 px-4 py-2 rounded-lg hover:bg-primary-50 transition-all duration-200 font-medium text-[15px]"
             >
               FAQ
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors font-medium"
+              className="bg-gradient-to-r from-primary-600 to-accent-600 text-white px-6 py-2.5 rounded-lg hover:from-primary-700 hover:to-accent-700 transition-all duration-200 font-medium text-[15px] soft-shadow hover:soft-shadow-lg ml-2"
             >
               Contact
             </button>
@@ -84,7 +84,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => scrollToSection('contact')}
-            className="md:hidden bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors text-sm font-medium"
+            className="md:hidden bg-gradient-to-r from-primary-600 to-accent-600 text-white px-5 py-2.5 rounded-lg hover:from-primary-700 hover:to-accent-700 transition-all duration-200 text-sm font-medium soft-shadow"
           >
             Contact
           </button>
