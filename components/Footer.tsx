@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { footer, siteConfig } from '@/constants/content'
 
 const Footer = () => {
@@ -8,9 +9,13 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto container-padding">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-white font-bold text-xl mb-4">
-              {siteConfig.businessName}
-            </h3>
+            <Image
+              src="/logo.jpeg"
+              alt={siteConfig.businessName}
+              width={120}
+              height={40}
+              className="h-10 w-auto object-contain mb-4"
+            />
             <p className="text-gray-400">
               {siteConfig.location.city}, {siteConfig.location.state}
             </p>

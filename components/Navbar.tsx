@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { siteConfig } from '@/constants/content'
 
 const Navbar = () => {
@@ -36,9 +37,14 @@ const Navbar = () => {
             className="flex items-center cursor-pointer"
             onClick={() => scrollToSection('hero')}
           >
-            <div className="text-xl md:text-2xl font-bold text-primary-600">
-              {siteConfig.businessName}
-            </div>
+            <Image
+              src="/logo.jpeg"
+              alt={siteConfig.businessName}
+              width={120}
+              height={40}
+              className="h-10 md:h-12 w-auto object-contain"
+              priority
+            />
           </div>
 
           {/* Navigation Links */}
