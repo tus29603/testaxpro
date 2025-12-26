@@ -7,7 +7,7 @@ const nextConfig = {
   trailingSlash: false,
   // Ensure assets are properly exported for GitHub Pages
   distDir: 'out',
-  // No basePath needed for root domain (textaxpro.com)
+  // No basePath needed for root domain (testaxpro.com)
   basePath: '',
   assetPrefix: '',
   // Disable features not compatible with static export

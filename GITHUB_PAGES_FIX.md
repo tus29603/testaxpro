@@ -11,7 +11,7 @@
 2. **Configuration Details**:
    - `output: 'export'` - Enables static export
    - `images: { unoptimized: true }` - Required for static export
-   - `basePath: ''` - Root domain (textaxpro.com)
+   - `basePath: ''` - Root domain (testaxpro.com)
    - `assetPrefix: ''` - No asset prefix needed
 
 ## Build Process
@@ -54,7 +54,7 @@ If CSS/JS still don't load:
 
 2. **Verify GitHub Pages settings**:
    - Settings → Pages → Source should be "GitHub Actions"
-   - Custom domain should be set to `textaxpro.com`
+   - Custom domain should be set to `testaxpro.com`
 
 3. **Check browser console**:
    - Look for 404 errors on `/_next/static/...` paths
