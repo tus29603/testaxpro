@@ -1,34 +1,103 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface CalendlyWidgetProps {
   isOpen: boolean
   onClose: () => void
 }
 
+declare global {
+  interface Window {
+    Calendly?: {
+      initInlineWidget: (options: { url: string; parentElement: HTMLElement }) => void
+      destroyBadgeWidget: () => void
+      showPopupWidget: (url: string) => void
+      hidePopupWidget: () => void
+    }
+  }
+}
+
 const CalendlyWidget = ({ isOpen, onClose }: CalendlyWidgetProps) => {
-  const scriptLoaded = useRef(false)
+  const widgetRef = useRef<HTMLDivElement>(null)
+  const [isScriptLoaded, setIsScriptLoaded] = useState(false)
+  const widgetInitialized = useRef(false)
 
   useEffect(() => {
-    if (!isOpen) return
+    // Load Calendly script
+    const loadCalendlyScript = (): Promise<void> => {
+      return new Promise((resolve) => {
+        // Check if script already exists
+        const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')
+        
+        if (existingScript && window.Calendly) {
+          setIsScriptLoaded(true)
+          resolve()
+          return
+        }
 
-    // Load Calendly script only once
-    if (!scriptLoaded.current) {
-      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]')
-      
-      if (!existingScript) {
-        const script = document.createElement('script')
-        script.type = 'text/javascript'
-        script.src = 'https://assets.calendly.com/assets/external/widget.js'
-        script.async = true
-        document.body.appendChild(script)
-        scriptLoaded.current = true
-      } else {
-        scriptLoaded.current = true
+        if (!existingScript) {
+          const script = document.createElement('script')
+          script.type = 'text/javascript'
+          script.src = 'https://assets.calendly.com/assets/external/widget.js'
+          script.async = true
+          script.onload = () => {
+            setIsScriptLoaded(true)
+            resolve()
+          }
+          script.onerror = () => {
+            console.error('Failed to load Calendly script')
+            resolve()
+          }
+          document.body.appendChild(script)
+        }
+      })
+    }
+
+    loadCalendlyScript()
+  }, [])
+
+  useEffect(() => {
+    if (!isOpen || !isScriptLoaded || !widgetRef.current || !window.Calendly) {
+      return
+    }
+
+    // Small delay to ensure DOM is ready
+    const initTimer = setTimeout(() => {
+      if (widgetRef.current && window.Calendly) {
+        try {
+          // Destroy any existing widget first
+          const existingWidget = widgetRef.current.querySelector('.calendly-inline-widget > iframe')
+          if (existingWidget) {
+            existingWidget.remove()
+          }
+
+          // Reinitialize the widget
+          window.Calendly.initInlineWidget({
+            url: 'https://calendly.com/tesfie055/30min',
+            parentElement: widgetRef.current,
+          })
+          widgetInitialized.current = true
+        } catch (error) {
+          console.error('Error initializing Calendly widget:', error)
+        }
+      }
+    }, 100)
+
+    return () => {
+      clearTimeout(initTimer)
+      // Clean up when closing
+      if (!isOpen) {
+        widgetInitialized.current = false
+        if (widgetRef.current) {
+          const iframe = widgetRef.current.querySelector('iframe')
+          if (iframe) {
+            iframe.remove()
+          }
+        }
       }
     }
-  }, [isOpen])
+  }, [isOpen, isScriptLoaded])
 
   if (!isOpen) return null
 
@@ -59,10 +128,17 @@ const CalendlyWidget = ({ isOpen, onClose }: CalendlyWidgetProps) => {
           </svg>
         </button>
 
-        {/* Calendly inline widget */}
+        {/* Loading state */}
+        {!isScriptLoaded && (
+          <div className="flex items-center justify-center h-[700px]">
+            <div className="text-gray-500">Loading calendar...</div>
+          </div>
+        )}
+
+        {/* Calendly inline widget container */}
         <div
+          ref={widgetRef}
           className="calendly-inline-widget"
-          data-url="https://calendly.com/tesfie055/30min"
           style={{ minWidth: '320px', height: '700px' }}
         />
       </div>
