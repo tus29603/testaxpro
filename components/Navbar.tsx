@@ -42,7 +42,7 @@ const Navbar = () => {
               alt={siteConfig.businessName}
               width={200}
               height={65}
-              className="h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className="h-28 md:h-32 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               priority
             />
           </div>

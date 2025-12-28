@@ -36,9 +36,9 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
               <button
                 onClick={handleBookAppointment}
-                className="w-full sm:w-auto bg-gradient-to-r from-primary-600 to-accent-600 text-white px-10 py-4.5 rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 font-bold text-lg flex items-center justify-center gap-2 soft-shadow-lg hover:soft-shadow-xl transform hover:-translate-y-1 active:translate-y-0"
+                className="w-full sm:w-auto bg-gradient-to-r from-primary-600 to-accent-600 text-white px-14 py-8 rounded-xl hover:from-primary-700 hover:to-accent-700 transition-all duration-300 font-bold text-xl flex items-center justify-center gap-3 soft-shadow-lg hover:soft-shadow-xl transform hover:-translate-y-1 active:translate-y-0"
               >
-                <CalendarIcon className="w-4 h-4" />
+                <CalendarIcon className="w-5 h-5" />
                 {hero.buttons.bookAppointment}
               </button>
               <button
